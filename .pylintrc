@@ -1,0 +1,12 @@
+[MASTER]
+ignore=tests,venv
+
+[MESSAGES CONTROL]
+disable=C0111,R0903,W0212
+
+[FORMAT]
+max-line-length=100
+
+[DESIGN]
+max-args=5
+max-attributes=10
