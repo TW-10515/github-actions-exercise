@@ -1,5 +1,5 @@
 import time
-from typing import List, Optional
+from typing import Optional
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
