@@ -27,7 +27,7 @@ def test_inference_valid_request():
     payload = {
         "prompt": "What is the meaning of life?",
         "max_tokens": 50,
-        "temperature": 0.7
+        "temperature": 0.7,
     }
     response = client.post("/inference", json=payload)
     assert response.status_code == 200
@@ -48,10 +48,7 @@ def test_inference_valid_request():
 
 def test_inference_empty_prompt():
     """Test inference endpoint with empty prompt"""
-    payload = {
-        "prompt": "",
-        "max_tokens": 50
-    }
+    payload = {"prompt": "", "max_tokens": 50}
     response = client.post("/inference", json=payload)
     assert response.status_code == 400
     assert "empty" in response.json()["detail"].lower()
@@ -59,19 +56,14 @@ def test_inference_empty_prompt():
 
 def test_inference_invalid_max_tokens():
     """Test inference endpoint with invalid max_tokens"""
-    payload = {
-        "prompt": "Test prompt",
-        "max_tokens": -1
-    }
+    payload = {"prompt": "Test prompt", "max_tokens": -1}
     response = client.post("/inference", json=payload)
     assert response.status_code == 400
 
 
 def test_inference_default_parameters():
     """Test inference endpoint with default parameters"""
-    payload = {
-        "prompt": "Test prompt with defaults"
-    }
+    payload = {"prompt": "Test prompt with defaults"}
     response = client.post("/inference", json=payload)
     assert response.status_code == 200
     data = response.json()

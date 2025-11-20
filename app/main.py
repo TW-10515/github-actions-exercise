@@ -31,10 +31,7 @@ async def root():
 
 @app.get("/health", response_model=HealthResponse)
 async def health():
-    return HealthResponse(
-        status="healthy",
-        timestamp=time.time()
-    )
+    return HealthResponse(status="healthy", timestamp=time.time())
 
 
 @app.post("/inference", response_model=InferenceResponse)
@@ -62,5 +59,5 @@ async def inference(request: InferenceRequest):
         response=mock_response,
         tokens_used=tokens_used,
         inference_time=inference_time,
-        model="mock-llm-v1"
+        model="mock-llm-v1",
     )
